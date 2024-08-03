@@ -1,0 +1,69 @@
+<h1 class="text-center mb-4">Shopping Cart</h1>
+<ng-container *ngIf="cart$ | async as cart">
+  <!-- Conditionally display the table only if there are items in the cart -->
+  <ng-container *ngIf="cart.items.length > 0">
+    <p class="text-center mb-3">
+      <!-- You have {{ cart.totalItemsCount }} items in your shopping cart. -->
+    </p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th class="text-center">Quantity</th>
+          <th class="text-center">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cart.items">
+          <td class="d-flex align-items-center">
+            <div
+              [ngStyle]="{
+                'background-image': 'url(' + item.product.imageUrl + ')'
+              }"
+              class="thumbnail me-3"
+            ></div>
+            <div>
+              <h5 class="mb-1">{{ item.product.title }}</h5>
+            </div>
+          </td>
+          <td class="text-center">
+            <button
+              (click)="decreaseQuantity(item.product)"
+              class="btn btn-outline-secondary btn-sm me-2"
+            >
+              -
+            </button>
+            {{ item.quantity }}
+            <button
+              (click)="increaseQuantity(item.product)"
+              class="btn btn-outline-secondary btn-sm ms-2"
+            >
+              +
+            </button>
+          </td>
+          <td class="text-center">
+            {{ item.totalPrice | currency : "USD" : true }}
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th></th>
+          <th class="text-end">Total:</th>
+          <th class="text-center">
+            {{ cart.totalPrice | currency : "USD" : true }}
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="d-flex justify-content-end mt-4">
+      <a routerLink="/check-out" class="btn btn-outline-secondary btn-lg"
+        >Check Out</a
+      >
+    </div>
+  </ng-container>
+  <ng-container *ngIf="cart.items.length === 0">
+    <p class="text-center text-muted">Your shopping cart is empty.</p>
+  </ng-container>
+</ng-container>

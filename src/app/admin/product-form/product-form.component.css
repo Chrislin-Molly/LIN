@@ -1,0 +1,28 @@
+.card-img-top {
+    width: 100%;
+    height: 22vw;
+    object-fit: cover;
+}
+
+.btn-outline-secondary,
+.btn-outline-danger {
+  border: 1px solid #6c757d;
+  color: #6c757d;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+
+
+
+
+

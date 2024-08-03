@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+.navbar-brand {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: 1rem;
+}
+
+.cursive-font {
+  font-family: 'Dancing Script', cursive;
+}
+
+.nav-link {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+.user-profile-pic {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.25em 0.5em;
+  border-radius: 1rem;
+}
+
+.badge-pill {
+  border-radius: 50%;
+  font-size: 0.9rem;
+  padding: 0.5em 0.em;
+}
+
+.nav-item .nav-link:hover {
+  color: #ffc107 !important;
+}
+
+.nav-item.dropdown .dropdown-menu {
+  background-color: #343a40;
+  border: none;
+}
+
+.nav-item.dropdown .dropdown-item {
+  color: #fff;
+}
+
+.nav-item.dropdown .dropdown-item:hover {
+  background-color: #495057;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:hover {
+  background-color: #495057;
+}
+
+.dropdown-divider {
+  border-top: 1px solid #6c757d;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}

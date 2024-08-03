@@ -1,0 +1,26 @@
+<h1 class="mb-4">Orders</h1>
+<div class="alert alert-dark" role="alert">
+  Note: The "View Order" feature has not been built yet.
+</div>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Customer</th>
+        <th>Date</th>
+        <th class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders$ | async">
+        <td>{{ order.shipping.name }}</td>
+        <td>{{ order.datePlaced | date : "dd-MM-yyyy" }}</td>
+        <td class="text-center">
+          <button type="button" class="btn btn-outline-secondary btn-sm">
+            View
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

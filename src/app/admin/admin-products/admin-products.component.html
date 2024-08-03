@@ -1,0 +1,36 @@
+<p>
+  <a routerLink="/admin/products/new" class="btn btn-outline-secondary mb-3"
+    >New Product</a
+  >
+</p>
+<p>
+  <input
+    #query
+    (keyup)="filter(query.value)"
+    type="text"
+    class="form-control mb-3"
+    placeholder="Search..."
+  />
+</p>
+<table class="table table-striped table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Price</th>
+      <th scope="col" class="text-center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of filteredProducts; trackBy: trackItem">
+      <td>{{ p.title }}</td>
+      <td>{{ p.price | currency : "USD" : true }}</td>
+      <td class="text-center">
+        <a
+          [routerLink]="['/admin/products', p.key]"
+          class="btn btn-outline-secondary btn-sm"
+          >Edit</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,106 @@
+<h2 class="text-center mb-4">Shipping</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <form #f="ngForm" class="bg-light p-4 rounded shadow-sm">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            #name="ngModel"
+            name="name"
+            [(ngModel)]="shipping.name"
+            type="text"
+            class="form-control"
+            id="name"
+            required
+          />
+          <div class="invalid-feedback" *ngIf="name.touched && name.invalid">
+            Name is required.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="addressLine1" class="form-label">Address</label>
+          <input
+            #addressLine1="ngModel"
+            name="addressLine1"
+            [(ngModel)]="shipping.addressLine1"
+            type="text"
+            class="form-control"
+            id="addressLine1"
+            placeholder="Line 1"
+            required
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="addressLine1.touched && addressLine1.invalid"
+          >
+            Address Line 1 is required.
+          </div>
+        </div>
+        <div class="mb-3">
+          <input
+            #addressLine2="ngModel"
+            name="addressLine2"
+            [(ngModel)]="shipping.addressLine2"
+            type="text"
+            class="form-control"
+            id="addressLine2"
+            placeholder="Line 2"
+            required
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="addressLine2.touched && addressLine2.invalid"
+          >
+            Address Line 2 is required.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="city" class="form-label">City</label>
+          <input
+            #city="ngModel"
+            name="city"
+            [(ngModel)]="shipping.city"
+            type="text"
+            class="form-control"
+            id="city"
+            required
+          />
+          <div class="invalid-feedback" *ngIf="city.touched && city.invalid">
+            City is required.
+          </div>
+        </div>
+        <button
+          (click)="placeOrder()"
+          class="btn btn-outline-secondary d-block mx-auto"
+        >
+          Place Order
+        </button>
+      </form>
+    </div>
+    <div class="col-md-5">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h4 class="card-title">Order Summary</h4>
+          <p class="card-text">
+            You have {{ cart.totalItemsCount }} item(s) in your shopping cart.
+          </p>
+          <ul class="list-group list-group-flush">
+            <li *ngFor="let item of cart.items" class="list-group-item">
+              {{ item.quantity }} x {{ item.product.title }}
+              <div class="float-end">
+                {{ item.totalPrice | currency : "USD" : true }}
+              </div>
+            </li>
+            <li class="list-group-item fw-bold">
+              Total
+              <div class="float-end">
+                {{ cart.totalPrice | currency : "USD" : true }}
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

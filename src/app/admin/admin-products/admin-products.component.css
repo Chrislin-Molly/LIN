@@ -1,0 +1,11 @@
+.btn-outline-secondary {
+    border: 1px solid #6c757d;
+    color: #6c757d;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: #fff;
+  }
+  
